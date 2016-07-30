@@ -1,0 +1,45 @@
+doctype html
+html(ng-app='angular-with-maven')
+
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    // build:js /js/check.js
+    script(type='text/javascript', src='/js/modernizr.js')
+    // endbuild
+
+    // build:css /css/app.css
+    link(rel='stylesheet', href='/bower_components/reset-css/reset.css')
+    link(href='/bower_components/ng-dialog/css/ngDialog.css', rel='stylesheet', type='text/css')
+    link(href='/bower_components/ng-dialog/css/ngDialog-theme-default.css', rel='stylesheet', type='text/css')
+    link(href='/bower_components/angular-toastr/dist/angular-toastr.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/styles/app.css')
+    // endbuild
+
+    title #{i18n.title}
+
+  body
+    div(ui-view)
+
+    // build:js /js/vendors.js
+    script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/bower_components/angular/angular.js')
+    script(type='text/javascript', src='/bower_components/ui-router/release/angular-ui-router.js')
+    script(type='text/javascript', src='/bower_components/ng-dialog/js/ngDialog.js')
+    script(type='text/javascript', src='/bower_components/angular-toastr/dist/angular-toastr.tpls.js')
+    script(type='text/javascript', src='/bower_components/angular-permission/dist/angular-permission.js')
+    script(type='text/javascript', src='/bower_components/angular-permission/dist/angular-permission-ui.js')
+    script(type='text/javascript', src='/bower_components/angular-validation-match/dist/angular-validation-match.js')
+    script(type='text/javascript', src='/bower_components/angular-translate/angular-translate.js')
+    script(type='text/javascript', src='/bower_components/angular-translate-loader-url/angular-translate-loader-url.js')
+    // endbuild
+
+    // build:js /js/app.js
+    script(type='text/javascript', src='/js/app.js')
+    // endbuild
+
+    // build:js /js/templates.js
+    script(type='text/javascript', src='/js/templates.js')
+    // endbuild

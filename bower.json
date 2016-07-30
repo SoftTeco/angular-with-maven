@@ -1,0 +1,23 @@
+{
+  "name": "angular-with-maven",
+  "version": "1.0.0",
+  "authors": [
+    "Nick Sakovich"
+  ],
+  "dependencies": {
+    "angular": "~1.5.7",
+    "reset-css": "^2.0.2011012603",
+    "ui-router": "~0.3.1",
+    "jquery": "^3.0.0",
+    "modernizr": "~3.3.1",
+    "ng-dialog": "^0.6.2",
+    "angular-toastr": "~1.7.0",
+    "angular-permission": "~3.2.1",
+    "angular-validation-match": "~1.9.0",
+    "angular-translate": "~2.11.1",
+    "angular-translate-loader-url": "~2.11.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.7"
+  }
+}

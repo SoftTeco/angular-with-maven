@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.softteco</groupId>
+  <artifactId>angular-with-maven</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+  <name>Angular with Maven</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <building.war.plugin>2.6</building.war.plugin>
+    <spring.version>3.2.8.RELEASE</spring.version>
+    <spring.security.version>3.2.3.RELEASE</spring.security.version>
+  </properties>
+
+  <profiles>
+
+    <profile>
+      <id>prod</id>
+      <properties>
+        <profile.directory>prod</profile.directory>
+      </properties>
+    </profile>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <profile.directory>dev</profile.directory>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-catalina</artifactId>
+          <version>8.0.0-RC3</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.3.0.M2</version>
+            <configuration>
+              <scanIntervalSeconds>0</scanIntervalSeconds>
+              <jettyXml>profiles/${profile.directory}/resources/jetty.xml</jettyXml>
+              <webApp>
+                <extraClasspath>${basedir}/target/classes</extraClasspath>
+                <contextPath>/</contextPath>
+              </webApp>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <build>
+
+    <finalName>angular-with-maven</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>profiles/${profile.directory}/resources</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+
+      <plugin>
+        <groupId>pl.allegro</groupId>
+        <artifactId>grunt-maven-plugin</artifactId>
+        <version>1.4.1</version>
+        <configuration>
+          <gruntOptions>
+            <gruntOption>build</gruntOption>
+          </gruntOptions>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>grunt</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-web</artifactId>
+      <version>2.0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tuckey</groupId>
+      <artifactId>urlrewritefilter</artifactId>
+      <version>4.0.4</version>
+    </dependency>
+  </dependencies>
+
+</project>

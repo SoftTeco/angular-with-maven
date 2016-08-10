@@ -84,7 +84,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['src/main/compiled/**/*.js']
+            src: ['src/main/compiled/js/**/*.js']
           }
         ]
       }

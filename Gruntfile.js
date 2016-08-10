@@ -310,11 +310,17 @@ module.exports = function(grunt) {
       },
       karma: {
         files: ['src/main/compiled/js/**/*.js'],
-        tasks: ['karma:unit:run']
+        tasks: ['karma:unit:run'],
+        options: {
+          livereload: false
+        }
       },
       tests: {
         files: ['src/test/js/unit/**/*.js'],
-        tasks: ['jshint:tests']
+        tasks: ['jshint:tests'],
+        options: {
+          livereload: false
+        }
       }
     },
 

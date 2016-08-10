@@ -28,7 +28,7 @@ IMPORTANT! If you are Windows user run all commands in terminal as administrator
 
 #Development
 
-You can run development server with ```grunt dev``` command. It will starts light weight development server http://localhost:8080. It is very useful for frontend development only.
+You can run development server with ```grunt dev``` command. It will starts light weight development server http://localhost:8080. It is very useful for frontend development only. ```sudo grunt dev:https``` will start dev server with SSL. The app will be available with this URL: https://localhost
 
 You can also run backend development server with ```mvn jetty:run -P dev```.
 
